@@ -9,15 +9,22 @@
 - Docker 1.13.0+
 
 
+
 ## Preparar o ambiente
+
+Make sure you have `Maven` installed. Execute the following maven command from the directory of the 
+parent project, `docker-example`:
+
 ```
 mvn clean package dockerfile:build
 ```
+It will create the Spring Boot executable JAR,`docker-example-1.0.jar`, under `docker-example/target` 
+folder.
 
 ## Docker (linha de comandos)
 - Container do Postgres
 ```
-docker run -it \
+docker run -it -d \
     
     --name docker-postgres \
     
@@ -29,6 +36,12 @@ docker run -it \
   
     postgres:10.4
 
+```
+
+- Container do Docker image, `docker-example`, by executing the 
+[`docker run`](https://docs.docker.com/engine/reference/run/) command from the terminal:
+```
+docker run --rm --name=cheetos docker-example
 ```
 - Ligação entre os containers
 
@@ -52,58 +65,23 @@ CONTAINER ID        IMAGE                                 COMMAND               
 
 ```
 
-## Docker (IDE- Compose)
-
-```
-docker-compose up
-
-```
-
-Spring Boot Example with Docker
-==================================
-This example creates a [`Docker`](https://www.docker.com/) image from a [`Spring Boot`](https://projects.spring.io/spring-boot/) 
-application using [`Spotify's Docker Maven plugin`](https://github.com/spotify/docker-maven-plugin).
-
-
-## Build and Run
-### Maven Build
-Make sure you have `Maven` installed. Execute the following maven command from the directory of the 
-parent project, `docker-example`:
-```
-mvn clean install
-```
-It will create the Spring Boot executable JAR,`docker-example-service-1.0.jar`, under `docker-example-service/target` 
-folder.
-
-### Run
-To run the newly created Spring Boot JAR from the terminal:
-```
-java -jar docker-example-service-1.0.jar
-```
-This should start up the example application at port `8080`. The application can be accessed at `http://localhost:8080`
-
-### Docker Build
-Before you build the Docker image, make sure Docker is available in your environment.
-Execute the following maven command from the directory of the parent project, `docker-example`:
-```
-mvn clean package docker:build
-```
-This should build a Docker image named `docker-example`.
-
-### Docker Run
-Run the newly created Docker image, `docker-example`, by executing the 
-[`docker run`](https://docs.docker.com/engine/reference/run/) command from the terminal:
-```
-docker run --rm -p 8080:8080  --name=cheetos docker-example
-```
-##### Options
+Options
 * `--rm` option automatically clean up the container and remove the file system when the container exit.
 * `--name` option names the Docker container as `cheetos`. In absence of the `--name` option, the Docker generates a 
 random name for your container.
 * [`-p 8080:8080`](https://docs.docker.com/engine/reference/run/#expose-incoming-ports) option publishes all 
 exposed ports to the host interfaces. In our example, it is port `8080` is both `hostPort` and `containerPort` 
+* -it: Executa o container com o shell iterativo com o container (it = interactive ) 
+* –link: Criar link com outros containers, no caso com o container da base de dados;
+* -p: Configura a porta a ser executado o serviço;
+* -d: Mantém a execução do container mesmo que fechado a janela (d = ativando Detached mode);
+* -e: Define configuração e ambiente (e = environment).
 
-This should start up the example application and it can be accessed at `http://localhost:8080`
+## Docker (IDE- Compose)
+
+```
+docker-compose up
+```
 
 ## Docker Commands
 ### List Container

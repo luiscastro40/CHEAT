@@ -1,7 +1,4 @@
-# # spring-boot-docker
-
-
-
+#  Docker
 
 ## Pré requisitos
 
@@ -12,27 +9,14 @@
 - Docker 1.13.0+
 
 
-## Preparando ambiente
-
-
-
-
+## Preparar o ambiente
 ```
-
 mvn clean package dockerfile:build
-
 ```
 
-
-
-## Executando
-
-
-Executando container do Postgres
-
-
+## Executar:
+- Container do Postgres
 ```
-
 docker run -it \
     
     --name docker-postgres \
@@ -46,13 +30,9 @@ docker run -it \
     postgres:10.4
 
 ```
-
-
-
-Executando container da aplicação
+- Ligação entre os containers
 
 ```
-
 docker run -it
      
    --link docker-postgres
@@ -62,9 +42,7 @@ docker run -it
    emmanuelneri/spring-boot-docker-app
 
 ```
-
-
-
+Exemplo:
 ```
 CONTAINER ID        IMAGE                                 COMMAND                  CREATED             STATUS              PORTS                    NAMES
 

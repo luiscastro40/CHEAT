@@ -14,7 +14,7 @@
 mvn clean package dockerfile:build
 ```
 
-## Executar:
+## Docker (linha de comandos)
 - Container do Postgres
 ```
 docker run -it \
@@ -52,45 +52,12 @@ CONTAINER ID        IMAGE                                 COMMAND               
 
 ```
 
-
-
-## Executando com Docker Compose
-
-
+## Docker (IDE- Compose)
 
 ```
-
 docker-compose up
 
 ```
-
-How to run this example :
-
-
-```
-
-## build docker images
-
-mvn clean install
-
-
-
-##should display three freshly built docker images
-
-docker images ls
-
-
-##start up all instances
-
-docker-compose up
-
-
-
-
-
-
-
-
 
 Spring Boot Example with Docker
 ==================================

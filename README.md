@@ -21,6 +21,11 @@ mvn clean package dockerfile:build
 It will create the Spring Boot executable JAR,`docker-example-1.0.jar`, under `docker-example/target` 
 folder.
 
+No caso de ser preciso desligar o servidor
+```
+Ctrl+C
+```
+
 ## Docker (linha de comandos)
 - Container do Postgres
 ```
@@ -55,7 +60,10 @@ docker run -it
    emmanuelneri/spring-boot-docker-app
 
 ```
-Exemplo:
+To display the built docker images
+```
+docker images ls
+```
 ```
 CONTAINER ID        IMAGE                                 COMMAND                  CREATED             STATUS              PORTS                    NAMES
 
@@ -78,7 +86,7 @@ exposed ports to the host interfaces. In our example, it is port `8080` is both 
 * -e: Define configuração e ambiente (e = environment).
 
 ## Docker (IDE- Compose)
-
+Ferramenta do próprio Docker para execução de múltiplos containers. Assim, basta criar o arquivo docker-compose.yml com as configurações abaixo e executar o comando docker-compose up.
 ```
 docker-compose up
 ```

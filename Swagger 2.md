@@ -29,8 +29,7 @@ Linguagem com formato JSON com campos padronizados para descrever:
     <version>2.9.0</version>
 </dependency>
 ```
-`<link>`*[Maven dependency](https://mvnrepository.com/artifact/io.springfox/springfox-swagger2/) - Verificar ultima versão*
-
+Verificar a última versão: [Maven dependency](https://mvnrepository.com/artifact/io.springfox/springfox-swagger2/) 
 
 - Configurar o Swagger 2 na aplicação
 
@@ -51,7 +50,7 @@ public class SwaggerConfig {
 ```
 Swagger 2 é utilizado atráves da anotação *@EnableSwagger2* .
 
-Após o Docket bean ser definido, seu método select () retorna uma instância do ApiSelectorBuilder, que fornece uma maneira de controlar os terminais expostos pelo Swagger.
+Após o Docker bean ser definido, seu método select () retorna uma instância do ApiSelectorBuilder, que fornece uma maneira de controlar os terminais expostos pelo Swagger.
 
 Opções para seleção de RequestHandlers podem ser configurados com a ajuda de RequestHandlerSelectors e PathSelectors. O uso de any () para ambos faz com que a documentação de toda a API esteja disponível através do Swagger.
 
@@ -69,7 +68,7 @@ O Swagger UI é uma solução grafica que facilita muito a interação do utiliz
     <version>2.9.0</version>
 </dependency>
 ```
-`<link>`*[Maven dependency](https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui/) - Verificar ultima versão*
+ Verificar a última versão: [Maven dependency](https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui/) 
 
 Agora é possivel aceder atráves do browser *http://localhost:8080/your-app-root/swagger-ui.html*
 Agora é possivel visualizar o Swagger com uma interface gráfica

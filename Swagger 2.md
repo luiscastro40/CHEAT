@@ -133,7 +133,7 @@ Por exemplo: alterar as mensagens 403 para todos os métodos GET.
 
 ## Anotações para documentação
 
-Com a utilização destas notações, é possível descrever os métodos da API e seus componentes. Utilizadas no controller, exceto a ApiModelProperty.
+Com a utilização destas notações, é possível descrever os métodos da API e seus componentes. Utilizadas no controller, exceto a ApiModelProperty que é utilizada no model.
 
 - **@ApiResponses** (@ApiResponse...) Conjunto de ApiResponse(s)
 

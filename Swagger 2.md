@@ -70,24 +70,22 @@ O Swagger UI é uma solução grafica que facilita muito a interação do utiliz
 ```
  Verificar a última versão: [Maven dependency](https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui/) 
 
-Agora é possivel aceder atráves do browser *http://localhost:8080/your-app-root/swagger-ui.html*
-Agora é possivel visualizar o Swagger com uma interface gráfica
+É possivel visualizar o Swagger com uma interface gráfica atráves do URL no browser: *http://localhost:8080/your-app-root/swagger-ui.html*
+
 ![](https://i1.wp.com/springframework.guru/wp-content/uploads/2017/02/Swagger_2_generated_documentation.png)
 
 
-- Filtrar API for Swagger’s Response (opcional)
+- Filtrar a API for Swagger’s Response. 
 É possivel personalizar as informações que aparecem bem como que informações queremos que sejam visualizadas
 
-PathSelectors provides additional filtering with predicates which scan the request paths of your application. You can use any(), none(), regex(), or ant().
-In the example below, we will instruct Swagger to include only controllers from a particular package, with specific paths, using the ant() predicate.
+**PathSelectors** fornece personalização adicional com funções que verificam os caminhos de pedidos do aplicativo. Pode-se usar any(), none (), regex() ou ant().
 
-PathSelectors fornece personalização adicional com funções que verificam os caminhos de pedidos do aplicativo. Pode-se usar any(), none (), regex() ou ant().
 No exemplo abaixo, informamos o Swagger a incluir apenas controladores de um componente específico, com caminhos específicos, usando o predicado ant ().
 ```
       .apis(RequestHandlerSelectors.basePackage("com.example.controller"))
       .paths(PathSelectors.ant("/foos/*"))      
 ```
-Também é possivel alterar apiInfo(ApiInfo apiInfo) method. A classe ApiInfo que contém informações personalizadas sobre a API.
+**ApiInfo** define as informações personalizadas a apresentar sobre a API.
 
 ```
 @Bean
@@ -111,9 +109,12 @@ private ApiInfo apiInfo() {
 }
 ```
 
-- Custom Methods Response Messages
-O Swagger permite substituir mensagens de resposta globais de métodos HTTP por meio do método globalResponseMessage () do Docket. Primeiro, temos de dizer ao Swagger a não usar mensagens de resposta padrão.
-Depois devemos definir o que pretendemos adicionando a informação ao Docket.
+- Custom Methods Response Messages .
+
+O Swagger permite substituir mensagens de resposta globais de métodos HTTP através do método **globalResponseMessage ()** do Docker.
+
+Primeiro, temos de dizer ao Swagger a não usar mensagens de resposta padrão, depois devemos definir o que pretendemos adicionando a informação ao Docker.
+
 Por exemplo: alterar as mensagens 403 para todos os métodos GET. 
 
 ```

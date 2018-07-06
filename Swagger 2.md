@@ -49,16 +49,16 @@ public class SwaggerConfig {
     }
 }   
 ```
-Swagger 2 is enabled through the @EnableSwagger2 annotation.
+Swagger 2 é utilizado atráves da anotação *@EnableSwagger2* .
 
-After the Docket bean is defined, its select() method returns an instance of ApiSelectorBuilder, which provides a way to control the endpoints exposed by Swagger.
+Após o Docket bean ser definido, seu método select () retorna uma instância do ApiSelectorBuilder, que fornece uma maneira de controlar os terminais expostos pelo Swagger.
 
-Predicates for selection of RequestHandlers can be configured with the help of RequestHandlerSelectors and PathSelectors. Using any() for both will make documentation for your entire API available through Swagger.
+Opções para seleção de RequestHandlers podem ser configurados com a ajuda de RequestHandlerSelectors e PathSelectors. O uso de any () para ambos faz com que a documentação de toda a API esteja disponível através do Swagger.
 
 ![](https://i1.wp.com/springframework.guru/wp-content/uploads/2017/02/Swagger_JSON_Output.png?ssl=1)
 
 ### Swagger UI
-Swagger UI is a built-in solution which makes user interaction with the Swagger-generated API documentation much easier.
+O Swagger UI é uma solução grafica que facilita muito a interação do utilizador com a documentação da API gerada pelo Swagger.
 
 - Adicionar a dependência no ficheiro *pom.xml*
 
@@ -71,7 +71,7 @@ Swagger UI is a built-in solution which makes user interaction with the Swagger-
 ```
 `<link>`*[Maven dependency](https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui/) - Verificar ultima versão*
 
-Now you can test it in your browser by visiting *http://localhost:8080/your-app-root/swagger-ui.html*
+Agora é possivel aceder atráves do browser *http://localhost:8080/your-app-root/swagger-ui.html*
 Agora é possivel visualizar o Swagger com uma interface gráfica
 ![](https://i1.wp.com/springframework.guru/wp-content/uploads/2017/02/Swagger_2_generated_documentation.png)
 
@@ -82,6 +82,8 @@ Agora é possivel visualizar o Swagger com uma interface gráfica
 PathSelectors provides additional filtering with predicates which scan the request paths of your application. You can use any(), none(), regex(), or ant().
 In the example below, we will instruct Swagger to include only controllers from a particular package, with specific paths, using the ant() predicate.
 
+PathSelectors fornece personalização adicional com funções que verificam os caminhos de pedidos do aplicativo. Pode-se usar any(), none (), regex() ou ant().
+No exemplo abaixo, informamos o Swagger a incluir apenas controladores de um componente específico, com caminhos específicos, usando o predicado ant ().
 ```
       .apis(RequestHandlerSelectors.basePackage("com.example.controller"))
       .paths(PathSelectors.ant("/foos/*"))      
@@ -110,7 +112,7 @@ private ApiInfo apiInfo() {
 }
 ```
 
-Custom Methods Response Messages
+- Custom Methods Response Messages
 O Swagger permite substituir mensagens de resposta globais de métodos HTTP por meio do método globalResponseMessage () do Docket. Primeiro, temos de dizer ao Swagger a não usar mensagens de resposta padrão.
 Depois devemos definir o que pretendemos adicionando a informação ao Docket.
 Por exemplo: alterar as mensagens 403 para todos os métodos GET. 

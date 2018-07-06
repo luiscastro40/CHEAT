@@ -29,7 +29,7 @@ Linguagem com formato JSON com campos padronizados para descrever:
     <version>2.9.0</version>
 </dependency>
 ```
-Verificar a última versão: [Maven dependency](https://mvnrepository.com/artifact/io.springfox/springfox-swagger2/) 
+*Verificar a última versão:* [Maven dependency](https://mvnrepository.com/artifact/io.springfox/springfox-swagger2/) 
 
 - Configurar o Swagger 2 na aplicação
 
@@ -68,7 +68,7 @@ O Swagger UI é uma solução grafica que facilita muito a interação do utiliz
     <version>2.9.0</version>
 </dependency>
 ```
- Verificar a última versão: [Maven dependency](https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui/) 
+ *Verificar a última versão:* [Maven dependency](https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui/) 
 
 É possivel visualizar o Swagger com uma interface gráfica atráves do URL no browser: *http://localhost:8080/your-app-root/swagger-ui.html*
 
@@ -129,4 +129,39 @@ Por exemplo: alterar as mensagens 403 para todos os métodos GET.
                                         .build()));
 
     }
-    ```
+```
+
+## Anotações para documentação
+
+Com a utilização destas notações, é possível descrever os métodos da API e seus componentes. Utilizadas no controller, exceto a ApiModelProperty.
+
+- **@ApiResponses** (@ApiResponse...) Conjunto de ApiResponse(s)
+
+- **@ApiResponse** (code= "", mesage="") Explicação do código de resposta HTTP.
+
+*code*= código de resposta HTTP, *message*= mensagem de explicação do código HTTP
+
+- **@ApiOperation** (value= "", notes= "", responseContainer= "", response= "") Declara as informações relativas a uma operação de uma API, com um path único e um método HTTP.
+
+*value*= objetivo do método, *notes*= explicação rápida do que o método faz, *resposeContainer*= tipo de dados, *response*= classes relacionadas com o método, apresentação da sua estrutura
+
+Exemplo:
+
+```
+    @ApiOperation(
+            value = "List all clients",
+            notes = "List all clients created",
+            responseContainer = "List",
+            response = Client.class
+    )
+    @ApiResponses(value = @ApiResponse(code = 404, message = "There are no clients created."))
+```
+
+- **@ApiModelProperty**(value= "", required= true) Definir a obrigatoriedade de designar conteúdo ao campo value
+*value*= descrição breve do campo
+
+Exemplo:
+```
+ @ApiModelProperty( value = "Project's name", required = true )
+    String nameProject;
+```

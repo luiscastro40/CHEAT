@@ -92,6 +92,23 @@ docker-compose up
 ```
 
 ## Docker Commands
+
+
+### Build an image
+To build a Docker image, execute [`docker build`](https://docs.docker.com/v1.11/engine/reference/commandline/build/) 
+command. 
+```
+docker build -t emmanuelneri/spring-boot-docker-app .
+```
+
+
+### Push an image
+To push a Docker image, execute [`docker push`](https://docs.docker.com/v1.11/engine/reference/commandline/push/) 
+command. 
+```
+docker push emmanuelneri/spring-boot-docker-app
+```
+
 ### List Container
 Run the [`docker ps`](https://docs.docker.com/v1.11/engine/reference/commandline/ps/) to list all the containers.
 To see all running containers, execute the following command:

@@ -131,6 +131,12 @@ bash-3.2$ docker stop cheetos
 cheetos
 ```
 
+### Run Container
+```
+command:
+docker run -p 8000:8080 emmanuelneri/spring-boot-docker-app
+```
+
 ## Docker Maven Plugin Setup
 We are using [`Spotify's Docker Maven Plugin`](https://github.com/spotify/docker-maven-plugin). It's relatively easy to
 setup in your Maven `pom.xml`. Complexity rises when you specify the plugin in the parent POM. Here are the changes to

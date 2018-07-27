@@ -152,7 +152,7 @@ cheetos
 To run a container, execute [`docker run`](https://docs.docker.com/v1.11/engine/reference/commandline/run/)
 ```
 command:
-docker run -p 8000:8080 emmanuelneri/spring-boot-docker-app
+docker run --name NOMEDOCONTAINER -p 8000:8080 emmanuelneri/spring-boot-docker-app
 ```
 
 ## Docker Maven Plugin Setup
